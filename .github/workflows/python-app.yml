@@ -28,6 +28,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        git config --global user.name "nishadtardalkar"
+        git config --global user.email "nishadtardalkar97@gmail.com"
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -42,18 +44,18 @@ jobs:
         pip install coverage-badge coverage
         coverage run -m pytest tests.py
         coverage-badge -o coverage/cov.svg -f
-        git config --global user.name "nishadtardalkar"
-        git config --global user.email "nishadtardalkar97@gmail.com"
-        git add coverage/cov.svg
-        if git diff --cached --quiet; then
-          echo "No changes in coverage"
-        else
-          git commit -m 'updating coverage data'
-          git push
-        fi
     - name: Static Tools
       run: |
         pip install autopep8 pylint radon
-        autopep8 rand.py hw2_debugging.py        
+        autopep8 --in-place *.py        
         echo $(echo '{"schemaVersion": 1, "label": "pylint", "message": "'$(pylint hw2_debugging.py | grep -oP '\d+\.\d+/10' | head -n 1)'", "color": "yellowgreen"}') > pylint_score.json
         radon cc rand.py hw2_debugging.py
+    - name: Commit changes from YML
+      run: |
+        git add .
+        if git diff --cached --quiet; then
+          echo ""
+        else
+          git commit -m 'updating static tools data'
+          git push
+        fi

@@ -1,6 +1,1 @@
-{
-    "schemaVersion": 1,
-    "label": "pylint",
-    "message": "5.0/10",
-    "color": "yellowgreen"
-  }
+{"schemaVersion": 1, "label": "pylint", "message": "10.00/10", "color": "yellowgreen"}

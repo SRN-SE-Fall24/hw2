@@ -51,3 +51,9 @@ jobs:
           git commit -m 'updating coverage data'
           git push
         fi
+    - name: Static Tools
+      run: |
+        pip install autopep8 pylint radon
+        autopep8 rand.py hw2_debugging.py        
+        echo $(echo '{"schemaVersion": 1, "label": "pylint", "message": "'$(pylint hw2_debugging.py | grep -oP '\d+\.\d+/10' | head -n 1)'", "color": "yellowgreen"}') > pylint_score.json
+        radon cc rand.py hw2_debugging.py

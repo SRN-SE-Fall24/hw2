@@ -8,5 +8,5 @@ SE HW 2 <br>
 
 Static Analysis Tools <br>
 ![Pylint Score](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/SRN-SE-Fall24/hw2/main/pylint_score.json)
-![Radon CC](https://img.shields.io/badge/radon-Grade%20A-brightgreen)
+![Radon CC](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/SRN-SE-Fall24/hw2/main/radon_grade.json)
 ![PEP8](https://img.shields.io/badge/code%20style-PEP8-brightgreen)

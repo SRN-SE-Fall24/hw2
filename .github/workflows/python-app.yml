@@ -49,7 +49,7 @@ jobs:
         pip install autopep8 pylint radon
         autopep8 --in-place *.py        
         echo $(echo '{"schemaVersion": 1, "label": "pylint", "message": "'$(pylint hw2_debugging.py | grep -oP '\d+\.\d+/10' | head -n 1)'", "color": "yellowgreen"}') > pylint_score.json
-        echo $(echo '{"schemaVersion": 1, "label": "pylint", "message": "'$( radon cc hw2_debugging.py | grep -oP '(?<=- )[A-Za-z]' | sort | tail -n 1)'", "color": "green"}') > radon_grade.json
+        echo $(echo '{"schemaVersion": 1, "label": "radon", "message": "'$( radon cc hw2_debugging.py | grep -oP '(?<=- )[A-Za-z]' | sort | tail -n 1)'", "color": "green"}') > radon_grade.json
     - name: Commit changes from YML
       run: |
         git add .
